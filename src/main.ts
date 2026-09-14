@@ -83,7 +83,9 @@ function createPrompt(file: File, chunk: Chunk, prDetails: PRDetails): string {
 - Provide the response in following JSON format:  {"reviews": [{"lineNumber":  <line_number>, "reviewComment": "<review comment>"}]}
 - Do not give positive comments or compliments.
 - Provide comments and suggestions ONLY if there is something to improve, otherwise "reviews" should be an empty array.
-- Write the comment in GitHub Markdown format.
+- The reviewComment value must contain only human-readable GitHub Markdown.
+- Never put JSON, JSON code fences, lineNumber, or field names inside reviewComment.
+- Use headings such as ### Issue, ### Why it matters, and ### Suggested fix.
 - Use the given description only for the overall context and only comment the code.
 - IMPORTANT: NEVER suggest adding comments to the code.
 
